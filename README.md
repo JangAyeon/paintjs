@@ -1,6 +1,8 @@
 # paintjs : 바닐라 JS로 그림판 만들기
 
-## wireframe 구성
+## wireframe 구성<br>
+
+![wireframe](/wireframe_1.jpg)
 
 ## canvas 위 마우스 움직임 포착 <br>
 
@@ -43,7 +45,7 @@
    배열을 하나씩 돌면서 해당 요소에게 `click` 이벤트에 대한 `handleColorClick` 함수 실행을 붙여줌`
 4. `handleColorClick`의 event target에서 `backgroundcolor`를 가져와 현재 색상 변수인 `.strokeStyle`에 override 진행<br><br>
 
-## 색상 변경 구현<br>
+## 브러쉬 사이즈 변경 구현<br>
 
 1. Id로 해당 `<input>` 가져옴
 2. 가져온 `<input>`에 대해 value 속성이 바뀌면 `handleRangeChange` 함수 실행
