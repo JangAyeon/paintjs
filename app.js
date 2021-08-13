@@ -1,7 +1,7 @@
 //1. track mouse movement on canvas
 const canvas=document.getElementById("jsCanvas");
 let painting =false; //painting 기본 상태 : false
-
+let filling = false; //filling 기본 상태 : false
 
 //2.set default 2D context in canvas 
 //canvas MDN : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#basic_example
@@ -16,12 +16,49 @@ ctx.strokeStyle="#2c2c2c";
 ctx.lineWidth=2.5;
 
 //3.set changing colors
-const colors=document.getElementsByClassName("controls__color jsColor");
-Array.from(colors).forEach(color=>color.addEventListener("click",handleColorClick));
+const colors=document.getElementsByClassName("jsColor");
+if (colors) {
+    Array.from(colors).forEach(color=>
+        color.addEventListener("click",handleColorClick));
+}
 
 function handleColorClick(event){
+    //override stroke style with target's backgroundColor
     const color=event.target.style.backgroundColor;
-    ctx.strokeStyle=color; //override stroke style with target's backgroundColor
+    ctx.strokeStyle=color; 
+}
+
+//4.set changing brush size
+const range=document.getElementById("jsRange");
+if (range){
+    range.addEventListener("input",handleRangeChange);
+}
+
+function handleRangeChange(event){
+    //override line width with target's input value
+    const size=event.target.value;
+    ctx.lineWidth=size;
+    
+}
+
+
+//5. change button from Fill to Paint
+
+const mode=document.getElementById("jsMode");
+
+if (mode){
+    mode.addEventListener("click",handleModeClick);
+}
+
+function handleModeClick(event){
+    if(filling){
+        filling=false;
+        mode.innerText="Fill";
+    }
+    else{
+        filling=true;
+        mode.innerText="Paint"
+    }
 }
 
 function startPainting(){
