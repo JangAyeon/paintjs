@@ -1,12 +1,40 @@
 //1. track mouse movement on canvas
-
 const canvas=document.getElementById("jsCanvas");
 let painting =false; //painting 기본 상태 : false
 
-function onMouseMove(event){
-    //mousemove 이벤트가 받아온 내용 : console.log(event);
-    const x=event.offsetX;
-    const y=event.offsetY;
+
+//2.set default 2D context in canvas 
+//canvas MDN : https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#basic_example
+
+//2-1 : give size to canvas pixel modifier size (not only in css but also in js)
+canvas.width=500;
+canvas.height=500;
+
+//2-2 : set default 2d context style
+const ctx=canvas.getContext("2d");
+ctx.strokeStyle="#2c2c2c";
+ctx.lineWidth=2.5;
+
+function startPainting(){
+    //마우스를 클릭하면 painting 시작
+    painting=true;
+}
+
+function onMouseMove(event){ //마우스를 움직일 때 실행됨
+    
+    const x=event.offsetX; //canvas 위 x좌표
+    const y=event.offsetY; //canvas 위 y좌표
+
+    if(!painting){
+        //painting = false : 클릭하지 않고 마우스를 움직이는 경우
+        ctx.beginPath(); //path(=지점) 생성
+        ctx.moveTo(x,y); //마우스의 x와 y좌표로 path를 옯김
+    }
+    else{
+        //painting = true : 클릭하고 마우스를 움직이는 경우
+        ctx.lineTo(x,y); //이전 path의 x,y에서 인자로 받은 x,y까지 연결해 line(=선) 생성
+        ctx.stroke(); //해당 line을 stroke함
+    }
 }
 
 function stopPainting(event){
@@ -15,22 +43,15 @@ function stopPainting(event){
     painting=false
 }
 
-function onMouseDown(event){
-    //마우스를 클릭하면 painting 시작
-    painting=true;
-}
 
-function onMouseUp(event){
-    stopPainting();
-}
 
 if (canvas) { //캔버스가 존재하는 경우,
     //canvas에 "mousemove" 이벤트 추가하고 "onMouseMove" 함수 실행
     canvas.addEventListener("mousemove",onMouseMove);
     //canvas에 "mousedown" 이벤트 추가하고 "onMouseDown" 함수 실행
-    canvas.addEventListener("mousedown",onMouseDown);
+    canvas.addEventListener("mousedown",startPainting);
     //canvas에 "mouseup" 이벤트 추가하고 "onMouseup" 함수 실행
-    canvas.addEventListener("mouseup",onMouseUp);
+    canvas.addEventListener("mouseup",stopPainting);
     //canvas에 "mouseleave" 이벤트 추가하고 "onMouseLeave" 함수 실행
     canvas.addEventListener("mouseleave",stopPainting);
 }
