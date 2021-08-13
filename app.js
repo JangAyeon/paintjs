@@ -15,6 +15,15 @@ const ctx=canvas.getContext("2d");
 ctx.strokeStyle="#2c2c2c";
 ctx.lineWidth=2.5;
 
+//3.set changing colors
+const colors=document.getElementsByClassName("controls__color jsColor");
+Array.from(colors).forEach(color=>color.addEventListener("click",handleColorClick));
+
+function handleColorClick(event){
+    const color=event.target.style.backgroundColor;
+    ctx.strokeStyle=color; //override stroke style with target's backgroundColor
+}
+
 function startPainting(){
     //마우스를 클릭하면 painting 시작
     painting=true;
