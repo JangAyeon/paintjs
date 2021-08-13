@@ -28,7 +28,8 @@ function handleColorClick(event){
     ctx.strokeStyle=color; 
 }
 
-//4.set changing brush size
+//4.set changing brush size 
+//input event MDN : https://developer.mozilla.org/ko/docs/Web/API/HTMLElement/input_event
 const range=document.getElementById("jsRange");
 if (range){
     range.addEventListener("input",handleRangeChange);
