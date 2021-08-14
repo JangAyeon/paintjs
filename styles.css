@@ -25,7 +25,8 @@ body {
   align-items: center;
 }
 
-.controls__btns button {
+.controls__btns button,
+.controls__btns input {
   all: unset;
   cursor: pointer;
   background-color: white;
@@ -57,8 +58,21 @@ body {
   height: 50px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   border-radius: 50%;
+  cursor: pointer;
+  position: relative;
 }
 
 .controls .controls__range {
   margin-bottom: 25px;
+  cursor: pointer;
+}
+.controls__colors input[type="color"] {
+  /* display: none; */
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+  background-color: lightgoldenrodyellow;
+  border: none;
+
+  cursor: pointer;
 }
