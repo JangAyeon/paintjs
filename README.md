@@ -105,11 +105,11 @@
 
 | Color Picker 실행                     |       Color Picker 색상 고르기        |
 | ------------------------------------- | :-----------------------------------: |
-| ![save_as_name](/사용자지정색상1.png) | ![save_as_name](/사용자지정색상2.png) |
+| ![save_as_name](/사용자지정색상1.jpg) | ![save_as_name](/사용자지정색상2.jpg) |
 
 | 사용자 지정 색성 Paint                |         사용자 지정 색상 Fill         |
 | ------------------------------------- | :-----------------------------------: |
-| ![save_as_name](/사용자지정색상3.png) | ![save_as_name](/사용자지정색상4.png) |
+| ![save_as_name](/사용자지정색상3.jpg) | ![save_as_name](/사용자지정색상4.jpg) |
 
 1. `<input type="color" id="jsColorPicker" />` 이용해 Color Picker 구현
 2. `document.getElementById("jsColorPicker")`로 요소를 가져오기
