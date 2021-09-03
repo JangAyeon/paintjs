@@ -114,3 +114,7 @@
 1. `<input type="color" id="jsColorPicker" />` 이용해 Color Picker 구현
 2. `document.getElementById("jsColorPicker")`로 요소를 가져오기
 3. `change` 이벤트 발생 시 해당 color id로 Fill과 Paint 진행
+
+
+### 배포<br>
+https://jangayeon.github.io/paintjs/
